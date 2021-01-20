@@ -13,6 +13,9 @@ verify_ssl = true
 [packages]
 tornado = "*"
 requests = "*"
+beautifulsoup4 = "*"
+aiomysql = "*"
+peewee = "*"
 
 [requires]
 python_version = "3.7"
