@@ -1,8 +1,25 @@
 from datetime import datetime
 from peewee import *
+import peewee_async
 
-db = MySQLDatabase('message', host="192.168.10.69", port=3306, user="root", password="root")
+# db = MySQLDatabase('message', host="192.168.10.69", port=3306, user="root", password="root")
 
+db = peewee_async.MySQLDatabase(
+    'message',
+    user='root',
+    host='192.168.10.69',
+    port=3306,
+    password='root'
+)
+
+
+# Create async models manager:
+
+objects = peewee_async.Manager(db)
+
+# No need for sync anymore!
+
+db.set_allow_sync(False)
 
 class BaseModel(Model):
     add_time = DateTimeField(default=datetime.now, verbose_name="添加时间")
@@ -14,7 +31,7 @@ class BaseModel(Model):
 class Supplier(BaseModel):
     name = CharField(max_length=100, verbose_name="名称", index=True)
     address = CharField(max_length=100, verbose_name="联系地址")
-    phone = CharField(max_length=11, verbose_name="联系方式")
+    phone = CharField(max_length=11, default="", verbose_name="联系方式")
 
     class Meta:
         table_name = "supplier"
