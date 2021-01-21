@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+#url = "https://pypi.org/simple"
+#url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+#url = "https://pypi.doubanio.com/simple/"
+#url = "https://mirrors.163.com/pypi/simple/"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+#url = "https://mirrors.cloud.tencent.com/pypi/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+tornado = "*"
+requests = "*"
+beautifulsoup4 = "*"
+aiomysql = "*"
+peewee = "*"
+peewee-async = "*"
+wtforms = "*"
+wtforms-tornado = "*"
+email-validator = "*"
+aliyun-python-sdk-core-v3 = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
